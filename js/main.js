@@ -11,8 +11,9 @@ $(document).ready(function() {
   var audioIncrease = $('#sanfona-increase'),
       audioDecrease = $('#sanfona-decrease');
 
-  var dialog = $('.dialog');
-
+  var dialog = $('.dialog'),
+      continc = 0,
+      contdes = 0;
 // =====================================
 // Change audio according to screen size
 
@@ -35,7 +36,7 @@ $(document).ready(function() {
       audioIncrease.removeClass('active');
     }
 
-    oldScreenSize = newScreenSize;
+    oldScreenSize = newScreenSize;    
 
     toggleAudio();
 
@@ -44,13 +45,13 @@ $(document).ready(function() {
   function toggleAudio() {
 
     if (audioIncrease.hasClass('active')) {
-      audioIncrease[0].play();
       audioDecrease[0].pause();
-      audioDecrease[0].currentTime = 0;
+      audioIncrease[0].play();
+      
     } else {
-      audioDecrease[0].play();
+
       audioIncrease[0].pause();
-      audioIncrease[0].currentTime = 0;
+      audioDecrease[0].play(); 
     }
 
   }
@@ -67,6 +68,7 @@ $(document).ready(function() {
     if (audioIncrease.hasClass('active')) {
       audioIncrease[0].pause();
       audioIncrease[0].currentTime = 0;
+     
     } else {
       audioDecrease[0].pause();
       audioDecrease[0].currentTime = 0;
